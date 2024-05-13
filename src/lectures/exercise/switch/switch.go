@@ -12,4 +12,18 @@
 package main
 
 func main() {
+
+	age := 21
+	switch {
+	case age == 0:
+		println("newborn")
+	case age >= 1 && age <= 3:
+		println("toddler")
+	case age >= 4 && age <= 12:
+		println("child")
+	case age >= 13 && age <= 17:
+		println("teenager")
+	default:
+		println("adult")
+	}
 }
