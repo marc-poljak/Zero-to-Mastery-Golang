@@ -19,5 +19,22 @@ package main
 import "fmt"
 
 func main() {
+	//* Perform the following:
+	//  - Create at least 4 items, all with active security tags
+	shirt := Item{"Shirt", Active}
+	pants := Item{"Pants", Active}
+	purse := Item{"Purse", Active}
+	watch := Item{"Watch", Active}
 
+	//  - Store them in a slice or array
+	items := []Item{shirt, pants, purse, watch}
+	fmt.Println(items)
+
+	//  - Deactivate any one security tag in the array/slice
+	deactivate(&items[0].tag)
+	fmt.Println(items)
+
+	//  - Call the checkout() function to deactivate all tags
+	checkout(items)
+	fmt.Println(items)
 }
