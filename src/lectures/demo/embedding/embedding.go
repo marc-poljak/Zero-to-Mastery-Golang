@@ -67,5 +67,10 @@ func (t *ToxicWaste) Ship() Shipping {
 }
 
 func main() {
+	mail := SpamMail{40000}
+	automate(&mail)
 
+	// Using embedded interfaces to ensure only items that
+	// implement both Conveyor and Shipper can be automated
+	// automate(&ToxicWaste{300}) // Won't work!
 }
