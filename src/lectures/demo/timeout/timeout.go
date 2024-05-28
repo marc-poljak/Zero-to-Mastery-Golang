@@ -1,8 +1,5 @@
 package main
 
-// We are starting with the same code from
-// the `cancellation` demo.
-
 import (
 	"bytes"
 	"encoding/base64"
@@ -15,6 +12,7 @@ import (
 	"os"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/chai2010/webp"
 	"github.com/google/uuid"
@@ -160,10 +158,24 @@ func main() {
 	filenames3 := pipeline(done, webpImages, saveToDisk)
 	filenames := fanIn(done, filenames1, filenames2, filenames3)
 
-	for name := range filenames {
-		fmt.Println(name)
-	}
+	timeout := time.After(10 * time.Millisecond)
 
+	// add a loop label so we can break directly out of the `for` loop
+TimeoutLoop:
+	for {
+		select {
+		case name, ok := <-filenames:
+			// channel closed
+			if !ok {
+				break TimeoutLoop
+			}
+			fmt.Println(name)
+		case <-timeout:
+			// pipeline took too long to run
+			log.Println("Pipeline did not finish in time. Aborting")
+			break TimeoutLoop
+		}
+	}
 }
 
 const img1 = `

@@ -12,6 +12,6 @@ func main() {
 
 	for sum >= 10 {
 		sum -= 5
-		fmt.Println("Sum is", sum)
+		fmt.Println("Decrement. Sum is", sum)
 	}
 }

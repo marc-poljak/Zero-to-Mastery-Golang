@@ -16,22 +16,23 @@ func main() {
 
 	switch p := price(); {
 	case p < 2:
-		fmt.Println("cheap item")
+		fmt.Println("Cheap item")
 	case p < 10:
-		fmt.Println("Moderate price")
+		fmt.Println("Moderately priced item")
 	default:
-		fmt.Println("Expensive Item")
+		fmt.Println("Expensive item")
 	}
 
 	ticket := Economy
 	switch ticket {
 	case Economy:
-		fmt.Println("Economy Class")
+		fmt.Println("Economy seating")
 	case Business:
-		fmt.Println("Business Class")
+		fmt.Println("Business seating")
 	case FirstClass:
-		fmt.Println("First Class")
+		fmt.Println("First class seating")
 	default:
-		fmt.Println("Unknown")
+		fmt.Println("Other seating")
 	}
+
 }

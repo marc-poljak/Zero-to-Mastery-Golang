@@ -17,7 +17,7 @@
 package timeparse
 
 import (
-    "fmt"
+	"fmt"
 	"strconv"
 	"strings"
 )

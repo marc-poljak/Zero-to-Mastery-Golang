@@ -14,23 +14,21 @@ type Bus struct {
 
 func main() {
 	casey := Passenger{"Casey", 1, false}
-	fmt.Println("Casey:", casey)
+	fmt.Println(casey)
 
 	var (
 		bill = Passenger{Name: "Bill", TicketNumber: 2}
-		ella = Passenger{Name: "Ella", TicketNumber: 3}
-		sue  = Passenger{Name: "Sue", TicketNumber: 4}
+		ella = Passenger{Name: "Ella", TicketNumber: 2}
 	)
-	fmt.Println("Bill:", bill, "Ella:", ella, "Sue:", sue)
+	fmt.Println(bill, ella)
 
 	var heidi Passenger
 	heidi.Name = "Heidi"
-	heidi.TicketNumber = 5
-	fmt.Println("Heidi:", heidi)
+	heidi.TicketNumber = 4
+	fmt.Println(heidi)
 
 	casey.Boarded = true
 	bill.Boarded = true
-	ella.Boarded = true
 	if bill.Boarded {
 		fmt.Println("Bill has boarded the bus")
 	}

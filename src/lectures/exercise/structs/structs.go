@@ -14,36 +14,42 @@
 //--Notes:
 //* The area of a rectangle is length*width
 //* The perimeter of a rectangle is the sum of the lengths of all sides
-//* The perimeter of a rectangle is the sum of the lengths of all sides
 
 package main
 
 import "fmt"
 
+// * Create a rectangle structure containing a length and width field
 type Rectangle struct {
-	length float64
-	width  float64
+	length int
+	width  int
 }
 
-func area(r Rectangle) float64 {
-	return r.length * r.width
+// * Using functions, calculate the area and perimeter of a rectangle,
+//   - The functions must use the rectangle structure as the function parameter
+func area(rect Rectangle) int {
+	return rect.length * rect.width
 }
 
-func perimeter(r Rectangle) float64 {
-	return (r.length + r.width) * 2
+func perimeter(rect Rectangle) int {
+	return (rect.width * 2) + (rect.length * 2)
 }
 
-func printResults(r Rectangle) {
-	fmt.Println("Area:", area(r))
-	fmt.Println("Perimeter:", perimeter(r))
+// - Print the results to the terminal
+func printInfo(rect Rectangle) {
+	fmt.Println("Area is", area(rect))
+	fmt.Println("Perimeter is", perimeter(rect))
 }
 
 func main() {
-	r := Rectangle{length: 10, width: 5}
-	printResults(r)
+	rect := Rectangle{length: 3, width: 7}
+	//  - Print the results to the terminal
+	printInfo(rect)
 
-	r.length *= 2
-	r.width *= 2
-	printResults(r)
-
+	//* After performing the above requirements, double the size
+	//  of the existing rectangle and repeat the calculations
+	rect.length *= 2
+	rect.width *= 2
+	//  - Print the new results to the terminal
+	printInfo(rect)
 }
